@@ -1,17 +1,19 @@
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+import {factory} from './modules/factory';
 
-console.log("Choose an option:");
-console.log("-------------------");
-console.log("1. Factory");
-rl.question("", (input) => {
-  console.log(`input is ${input}`);
+const SELECTORS = {
+  SELECTION_INPUT = "#selection-input",
+  RUN_BTN = "#selection-run",
+  RESULT = "#result",
+};
 
-  switch (input) {
-    case 1:
-      factory();
-      break;
-  }
-});
+const selection = document.getElementById(SELECTORS.SELECTION_INPUT);
+const resultSp = document.getElementById(SELECTORS.RESULT).textContent("");
+
+const displayResult = (resultText) => resultSp.textContent(resultText);
+
+switch(selection) {
+  case 0:
+  default:
+    displayResult("Something bad happened")
+    break;
+}
